@@ -1,0 +1,73 @@
+save_dir: /home/ericxhzou/Code/LifelongPR/exp/Ours_submodular
+debug: False
+vis_memory: False
+data:
+  num_points: 4096
+  dataset_folder: /home/ericxhzou/Data/benchmark_datasets
+  aug_mode: 1  # InCloud and CCL doesn't use Data Augmentation indeed, owing to bug in the code! But the result in Paper may be right?
+  pin_memory: False
+model:
+  # name: logg3d, PointNetVlad, MinkFPN_GeM, PatchAugNet
+  name: MinkFPN_GeM
+  mink_quantization_size: 0.01
+  planes: [32,64,64]
+  layers: [1,1,1]
+  num_top_down: 1
+  conv0_kernel_size: 5
+  output_dim: 256
+  feature_size: 256
+  normalize_embeddings: False
+  use_prompt: True  # prompt -> two stage training
+  num_prompt_block: 2
+  use_scene_id: False
+train:
+  num_workers: 2
+  batch_size: 16
+  batch_size_limit: 256  # PatchAugNet: 48, MinkFPN_GeM: 144, PointNetVlad: 42
+  batch_expansion_rate: 1.4
+  batch_expansion_th: 0.7
+  strategy: 2 # 1: one stage, 2: two stage (ours), 3: only training prompt module
+  memory:
+    num_pairs: 256
+    use_greedy: True  # memory selection strategy, True: stochastic-greedy heuristic, False: random
+    use_forget: True
+    use_dist: True
+    sigma: 1
+    random_forget: True
+    rank_temperature: 0
+  optimizer:
+    lr: 0.001
+    weight_decay: 0.001
+    scheduler: 'MultiStepLR'
+    scheduler_milestones: [30]
+    epochs: 60
+  optimizer1:  # training QFormer only
+    lr: 0.001
+    weight_decay: 0.001
+    scheduler: 'MultiStepLR'
+    scheduler_milestones: [20]
+    epochs: 40
+  optimizer2:  # fine tuning modules except QFormer, use smaller lr
+    lr: 0.0002  # 0.0001
+    weight_decay: 0.001
+    scheduler: 'MultiStepLR'
+    scheduler_milestones: [20]
+    epochs: 40
+  loss:
+    pr:
+      name: BatchHardTripletMarginLoss
+      margin: 0.2
+    mi:
+      temperature: 0.1
+    incremental:
+      name: 'StructureAware'
+      weight: 1
+      margin: 0.0002
+      adjust_weight: True
+      gamma: 10
+eval:
+  batch_size: 256
+  thresh_min: 0
+  thresh_max: 1
+  num_thresholds: 1000
+  similarity: euclidean
