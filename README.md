@@ -1,2 +1,2 @@
 # PatchAugNet_page
-### Project page of [LifelongPR](https://github.com/zouxianghong/LifelongPR)
+### Project page of [LifelongPR](https://zouxianghong.github.io/LifelongPR/)
