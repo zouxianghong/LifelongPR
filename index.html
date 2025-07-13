@@ -1,0 +1,168 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LifelongPR: Lifelong knownledge fusion for point cloud place recognition based on replay and prompt learning</title>
+  <link href="./LifelongPR/style.css" rel="stylesheet">
+  <script type="text/javascript" src="./LifelongPR/jquery.mlens-1.0.min.js"></script>
+  <script type="text/javascript" src="./LifelongPR/jquery.js"></script>
+  <style>
+    .divider {
+      border-right: 2px dashed #737373;
+      width: 2px;
+    }
+  </style>
+  <style>
+    .divider_horizontal {
+      border-top: 2px dashed #737373;
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <div class="content">
+    <h1><strong>LifelongPR: Lifelong knownledge fusion for point cloud place recognition based on replay and prompt learning</strong>
+    </h1>
+    <p id="authors">
+      <span>
+        <a href="https://zouxianghong.github.io/">Xianghong Zou<sup>1,3</sup></a>
+      </span>
+      <span>
+        <a href="https://github.com/kafeiyin00">Jianping Li<sup>2,&dagger;</sup></a>
+      </span>
+      <br>
+      <span>
+        <a href="https://github.com/chenzhe-code">Zhe Chen<sup>1</sup></a>
+      </span>
+	  <span>
+        <a href="https://github.com/a4152684">Zhen Cao<sup>1</sup></a>
+      </span>
+      <span>
+        <a href="https://dongzhenwhu.github.io/">Zhen Dong<sup>3</sup></a>
+      </span>
+	  <span>
+        <a href="https://dongzhenwhu.github.io/">Qiegen Liu<sup>4,5,&dagger;</sup></a>
+      </span>
+      <span>
+        <a href="https://3s.whu.edu.cn/info/1025/1415.htm">Bisheng Yang<sup>3</sup></a>
+      </span>
+      <br>
+      <span class="institution">
+        <a href="https://jdgcxy.ncu.edu.cn/"><sup>1</sup> School of Advanced Manufacturing, Nanchang University</a><br>
+        <a href="https://www.ntu.edu.sg/eee"><sup>2</sup> School of Electrical and Electronic Engineering, Nanyang Technological University</a><br>
+		<a href="https://liesmars.whu.edu.cn/"><sup>3</sup> State Key Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing, Wuhan University</a><br>
+        <a href="https://ie.ncu.edu.cn/"><sup>4</sup> School of Information Engineering, Nanchang University</a></span>
+		<a href="https://ie.ncu.edu.cn/kxyj/kypt/index.htm"><sup>5</sup> Jiangxi Provincial Key Laboratory of Advanced Signal Processing and Intelligent Communications, Nanchang University</a></span>
+        <sup>&dagger;</sup>Corresponding authors. &nbsp;&nbsp; 
+    </p>
+    <font size="+2">
+      <p style="text-align: center;">
+        <a href="https://arxiv/xxxxxxxxxxxxxxxxxxxxxxx" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/zouxianghong/LifelongPR" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="LifelongPR/bibtex.txt" target="_blank">[BibTeX]</a>
+      </p>
+    </font>
+  </div>
+
+  <div class="content">
+    <h2 style="text-align:center;">Abstract</h2>
+    <p>Point cloud place recognition (PCPR) is a fundamental task in robotics and computer vision in the fields of autonomous driving, intelligent transportation, and augmented reality. To cope with the dynamic changes in scenarios and sensor types, PCPR models need to incrementally acquire, update, and accumulate knowledge for continuous evolution—an ability known as continual learning (CL). However, due to the dynamic distributions of incrementally acquired point cloud data, PCPR models often forget previous knowledge when acquiring new knowledge, i.e. catastrophic forgetting. To address this issue, this study proposes a novel CL method tailored for PCPR, which effectively extracts and fuses knowledge learned by the model across sequential point cloud data. First, a replay sample selection method is proposed, dynamically allocating a replay sample size to each training set based on information quantity and selecting replay samples based on spatial distribution. Second, a new CL framework composed of a prompt module and the two-stage training strategy is proposed, and the domain-specific knowledge captured from each training set by the prompt module is used for guiding the backbone network to extract features adapted to individual samples. Comprehensive experiments on large-scale public and self-collected datasets are conducted to validate the effectiveness of the proposed method. Compared with state-of-the-art (SOTA) methods, our method achieves 6.50% improvement in 𝑚𝐼𝑅@1, 7.96% improvement in 𝑚𝑅@1, and an 8.95% reduction in 𝐹.</p>
+	<img src="./LifelongPR/Fig2-LifelongPR-network-structure.jpg" class="workflow" style="width:100%;"><br>
+    <a style="text-align:center">
+      LifelongPR, <strong>rely on replay sample selection considerng information quantity and spatial distribution, and continual learning framework based on prompt learning</strong>, achieves better performance for <strong> Continual Learning for Point Cloud Place Recognition</strong>.
+	  1)The replay sample selection method dynamically allocates sample sizes according to each dataset’s information quantity and selects spatially diverse samples for maximal representativeness.
+	  2)The prompt learning-based continual learning framework consists of a lightweight prompt module and a two-stage training strategy, enabling domain-specific feature adaptation while minimizing forgetting.
+	</a>
+  </div>
+
+  <div class="content">
+    <h2 style="text-align:center;">Introduction</h2>
+    <video width="100%" controls autoplay control src="LifelongPR/LifelongPR.mp4" ></video>
+    <a href="https://youtu.be/D7ud0X1kywE" target="_blank">[Youtube]</a>
+  </div>
+
+  <div class="content">
+
+	<h2 style="text-align:center;">Compare to baselines</h2>
+	<div>
+	  <img class="summary-img" src="./LifelongPR/Quantitative-table-Seq1.png" style="float:left;width:50%;">
+	  <img class="summary-img" src="./LifelongPR/Quantitative-table-Seq2.png" style="float:right;width:50%;">
+	</div>
+	<div>
+	  <img class="summary-img" src="./LifelongPR/Quantitative-recall-matrix-Seq1.jpg" style="float:left;width:50%;">
+	  <img class="summary-img" src="./LifelongPR/Quantitative-recall-matrix-Seq2.jpg" style="float:right;width:50%;">
+	</div>
+    <a>
+      <center>Continual learning on Seq1 (Oxford->DCC-Riverside->In-house) and Seq2 (Oxford->Hankou->WHU-Campus->In-house).</center>
+    </a>
+	<br>
+	
+	<div>
+	  <div>
+	    <img class="summary-img" src="./LifelongPR/tsne-Seq2.jpg">
+	  </div>
+	</div>
+    <a>
+      <center> t-SNE visualization of samples in Seq2 at different stages of continuous learning.</center>
+    </a>
+	<br>
+	
+	<div>
+	  <div>
+	    <img class="summary-img" src="./LifelongPR/Success-cases.jpg">
+	  </div>
+	</div>
+    <a>
+      <center> Six success cases of LifelongPR.</center>
+    </a>
+	<br>
+	
+	<h2 style="text-align:center;">Analyse</h2>
+	<div>
+	  <div>
+	    <img class="summary-img" src="./LifelongPR/Ablation-key-modules.png">
+	  </div>
+	</div>
+	<div>
+	  <div>
+	    <img class="summary-img" src="./LifelongPR/Ablation-training-strategy.png">
+	  </div>
+	</div>
+	<br>
+	
+	<div>
+	  <div>
+	    <img class="summary-img" src="./LifelongPR/Analyse-CL-Seq1.png">
+	  </div>
+	</div>
+    <a>
+      <center> Detailed results of different continual learning methods trained on the Seq1.</center>
+    </a>
+	<br>
+	
+  </div>
+
+  <div class="content">
+    <h2>BibTex</h2>
+    <code> @article{zou2025lifelongpr,<br>
+  &nbsp;&nbsp;title={LifelongPR: Lifelong knownledge fusion for point cloud place recognition based on replay and prompt learning},<br>
+  &nbsp;&nbsp;author={Zou, Xianghong and Li, Jianping and Chen, Zhe and Cao, Zhen and Dong, Zhen and Qiegen, Liu and Yang, Bisheng},<br>
+  &nbsp;&nbsp;journal={Information Fusion},<br>
+  &nbsp;&nbsp;volume={xxx},<br>
+  &nbsp;&nbsp;pages={xxx--xxx},<br>
+  &nbsp;&nbsp;year={2025}<br>
+  &nbsp;&nbsp;publisher={Elsevier}<br>
+  } </code>
+  </div>
+  <div class="content" id="acknowledgements">
+    <p><strong>Acknowledgements</strong>:
+      We borrow this template from <a href="https://whu-usi3dv.github.io/FreeReg/">FreeReg</a>.
+    </p>
+  </div>
+</body>
+
+</html>

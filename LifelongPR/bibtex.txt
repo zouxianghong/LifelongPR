@@ -1,0 +1,9 @@
+@article{zou2025lifelongpr,
+  title={LifelongPR: Lifelong knownledge fusion for point cloud place recognition based on replay and prompt learning},
+  author={Zou, Xianghong and Li, Jianping and Chen, Zhe and Cao, Zhen and Dong, Zhen and Qiegen, Liu and Yang, Bisheng},
+  journal={Information Fusion},
+  volume={xxx},
+  pages={xxx--xxx},
+  year={2025},
+  publisher={Elsevier}
+}
