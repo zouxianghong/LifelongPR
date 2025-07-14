@@ -1,6 +1,7 @@
 ### LifelongPR
 * For details, please refer to [Project Main Page](https://zouxianghong.github.io/LifelongPR/)
 * Demo video in [Youtube](https://www.youtube.com/watch?v=D7ud0X1kywE)
+[![demo](./short-demo.gif)](https://www.youtube.com/watch?v=D7ud0X1kywE)
 
 ### Environment
 * Docker image:
