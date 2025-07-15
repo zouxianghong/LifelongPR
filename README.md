@@ -1,4 +1,5 @@
 # InCloud: Incremental Learning for Point Cloud Place Recognition
+Note: this repository is forked from [csiro-robotics/InCloud](https://github.com/csiro-robotics/InCloud), and some bugs are fixed.
 ![](figures/InCloud.png?style=centerm)
 This repository contains the code implementation used in the IROS2022 paper *InCloud: Incremental Learning for Point Cloud Place Recognition*. \[[arXiv](https://arxiv.org/abs/2203.00807)].  
 
