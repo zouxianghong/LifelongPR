@@ -55,4 +55,4 @@ If you find the code or trained models useful, please consider citing:
 ```
 
 #### Acknowledgement
-Our code refers to [InCloud](https://github.com/csiro-robotics/InCloud).
+Our code is built upon [InCloud](https://github.com/csiro-robotics/InCloud).
